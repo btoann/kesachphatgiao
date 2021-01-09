@@ -1,9 +1,11 @@
 <?php
 
+    /*  Global constants  */
+
     final class STATUS
     {
-        const STATE_ON = 1;
-        const STATE_OFF = 0;
+        const ACTIVE = 1;
+        const INACTIVE = 0;
     }
 
     final class ROLES

@@ -46,11 +46,11 @@
             }
             $conn = $this->__conn;
 
-            // Thực thi
+            //  Thực thi
             $stmt = $conn->prepare($sql);
             $stmt->execute();
 
-            // Kết quả trả về
+            //  Kết quả trả về
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             return $stmt->fetch();
         }
@@ -66,7 +66,7 @@
             }
             $conn = $this->__conn;
 
-            // Thực thi
+            //  Thực thi
             $conn->exec($sql);
         }
         
@@ -81,10 +81,10 @@
             }
             $conn = $this->__conn;
 
-            // Thực thi
+            //  Thực thi
             $conn->exec($sql);
             
-            // Kết quả trả về
+            //  Kết quả trả về
             return $conn;
         }
 
@@ -92,12 +92,15 @@
         /**
          *      Khởi chạy hoặc ngắt event_scheduler trong Database trên mySQL
          */
-        public function event_scheduler($cmd)
+        public function event_scheduler(int $cmd)
         {
-            if (!($cmd == STATUS::STATE_ON || $cmd == STATUS::STATE_OFF)) {
+            if (!($cmd === STATUS::ACTIVE || $cmd === STATUS::INACTIVE)) {
                 return;
             }
             $conn = $this->__conn;
+            
+            //  Thực thi
+            $cmd = ($cmd == STATUS::ACTIVE) ? 'ON' : 'OFF';
             $sql = "SET GLOBAL event_scheduler = '$cmd';";
             $conn->exec($sql);
         }
