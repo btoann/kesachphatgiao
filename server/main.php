@@ -29,6 +29,7 @@
         include_once $filename;
         $ctrl = 'c_' . $ctrl;
         $controller = new $ctrl();
+        
     }
 
 ?>
