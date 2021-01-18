@@ -5,14 +5,13 @@
     class Template
     {
         /**
-         *      Thư mục views.
+         *      Thư mục view.
          */
         private $__directory;
         
         /**
-         *      Layout của views.
-         *      Thuộc tính này sẽ có giá trị là view parent - view cần kế thừa của view đang được gọi. 
-         *      @default null
+         *      Layout của view.
+         *      @default: NULL
          */
         private $__layout;
         
@@ -23,7 +22,7 @@
         
         /**
          *      section hiện tại đang xét.
-         *      @default null
+         *      @default: NULL
          */
         private $__current_section;
         
@@ -35,15 +34,15 @@
         {
             $this->__setDirectory($directory);
             $this->__sections = [];
-            $this->__layout = null;
-            $this->__current_section = null;
+            $this->__layout = NULL;
+            $this->__current_section = NULL;
         }
 
         
         /**
          *      Hàm set thư mục views
          * 
-         *      @ param string $directory Thư mục views
+         *      @input:  string $directory  <-  Thư mục views
          */
         private function __setDirectory(string $directory)
         {
@@ -56,9 +55,9 @@
         /**
          *      Hàm kiểm tra đường dẫn của file view
          * 
-         *      @ param string $path Đường dẫn của file. Đuôi file sẽ là .php
+         *      @input:  string $path  <-  Đường dẫn của file. Đuôi file sẽ là .php
          * 
-         *      @ return string 
+         *      @output:  string $file  <-  Đường dẫn hoàn chỉnh của file view
          */
         private function __resolvePath(string $path)
         {
@@ -69,14 +68,28 @@
             return $file;
         }
 
+        /**
+         *      Hàm kiểm tra đường dẫn của file khác không liên quan đến thư mục views
+         * 
+         *      @input, @output:  <=>  function __resolvePath(string $path)
+         */
+        private function __resolveOtherPath(string $path)
+        {
+            $file = $path . '.php';
+            if (!file_exists($file)) {
+                throw new Exception("$file is not exist");
+            }
+            return $file;
+        }
+
         
         /**
          *      Hàm load view
          * 
-         *      @ param string $view_name Tên view cần load
-         *      @ param array $args Các tham số cần truyền qua view
+         *      @input:  string $view_name  <-  Tên view cần load
+         *      @input:  array $args  <-  Các tham số cần truyền qua view, nếu có sẽ được trích xuất thành các biến riêng biệt
          * 
-         *      @ return string
+         *      @output:  string $file  <-  Đường dẫn hoàn chỉnh của file view
          */
         public function render(string $view_name, array $args)
         {
@@ -96,7 +109,7 @@
 
             ob_clean();
 
-            include_once $this->__resolvePath($this->__layout);
+            include_once $this->__resolveOtherPath($this->__layout);
 
             $output = ob_get_contents();
 
@@ -109,7 +122,7 @@
         /**
          *      Include một view trong một view
          * 
-         *      @ param string $view_name Tên view cần include
+         *      @input:  string $view_name  <-  Tên view cần include
          */
         public function include(string $view_name)
         {
@@ -128,7 +141,7 @@
         /**
          *      Hàm bắt đầu một section
          * 
-         *      @ param string $name Tên của section.
+         *      @input:  string $name  <-  Tên của section.
          */
         public function section(string $name)
         {
@@ -158,7 +171,7 @@
         /**
          *      Hàm kế thùa layout trong views
          * 
-         *      @ param string $layout Layout cần kế thừa
+         *      @input:  string $layout  <-  Layout cần kế thừa
          */
         public function layout(string $layout)
         {
@@ -168,7 +181,7 @@
         /**
          *      Hàm xác định vị trí section sẽ được render trong file layout view
          * 
-         *      @ param string $name Tên section cần render
+         *      @input:  string $name  <-  Tên section cần render
          */
         public function renderSection(string $name)
         {

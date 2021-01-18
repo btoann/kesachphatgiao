@@ -3,9 +3,9 @@
     /*  Controller functions  */
 
     include_once 'connect.php';
-    include_once 'constants.php';
+    include_once 'config.php';
     
-    class Controller extends Database
+    class Model extends Database
     {
         /**
          *      Hàm khởi tạo

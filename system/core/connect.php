@@ -36,13 +36,12 @@
         protected function __construct(string $dtbname)
         {
             if (empty($dtbname)) {
-                throw new Exception("$dtbname is null");
             }
 
-            $this->__host = 'localhost';
+            $this->__host = DTB::MAIN_HOST;
             $this->__dtbname = $dtbname;
-            $this->__username = 'root';
-            $this->__password = '';
+            $this->__username = DTB::MAIN_USER;
+            $this->__password = DTB::MAIN_PASS;
 
             //  Trả về đối tượng lớp PDO
             $this->__conn = $this->connect();

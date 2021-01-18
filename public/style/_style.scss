@@ -4,209 +4,177 @@
  *
  */
 
-
 /**
  *      Default elements, classes
  */
-*
-{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     word-wrap: break-word;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        "Helvetica Neue", sans-serif;
+    outline: none !important;
 }
-ul
-{
+a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+        color: inherit;
+        text-decoration: inherit;
+    }
+}
+ul {
     display: flex;
 }
-li
-{
+li {
     list-style: none;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 /**
  *      Default texts
  */
-.bold-txt
-{
+.bold-txt {
     font-weight: bold !important;
 }
-.upc-txt
-{
+.upc-txt {
     text-transform: uppercase !important;
 }
 /**
  *      Default buttons
  */
-.btn-hv
-{
+.btn-hv {
     border: none;
     cursor: pointer;
 }
-.btn-hv:hover
-{
+.btn-hv:hover {
     filter: brightness(125%);
 }
-
 
 /**
  *      Box's background color
  */
-.main-bg
-{
-    background-color: #51C5DD;
+.main-bg {
+    background-color: #51c5dd;
 }
-.bside-bg
-{
-    background-color: #0A4F70;
+.bside-bg {
+    background-color: #0a4f70;
 }
-.hl-bg
-{
-    background-color: #F04C63;
+.hl-bg {
+    background-color: #f04c63;
 }
-.lightgray-bg
-{
+.lightgray-bg {
     background-color: #f8f6f7;
 }
-.gray-bg
-{
-    background-color: #c6c4c4;
+.gray-bg {
+    background-color: #f9fafb;
 }
 
 /**
  *      Box's background color !IMPORTANT
  */
-.main-bg-i
-{
-    background-color: #51C5DD !important;
+.main-bg-i {
+    background-color: #51c5dd !important;
 }
-.bside-bg-i
-{
-    background-color: #0A4F70 !important;
+.bside-bg-i {
+    background-color: #0a4f70 !important;
 }
-.hl-bg-i
-{
-    background-color: #F04C63 !important;
+.hl-bg-i {
+    background-color: #f04c63 !important;
 }
-.lightgray-bg-i
-{
+.lightgray-bg-i {
     background-color: #f8f6f7 !important;
 }
-.gray-bg-i
-{
+.gray-bg-i {
     background-color: #c6c4c4 !important;
 }
-
 
 /**
  *      Box:HOVER's background color
  */
-.main-bg-hv:hover
-{
-    background-color: #51C5DD !important;
+.main-bg-hv:hover {
+    background-color: #51c5dd !important;
     transition: all 0.15s;
 }
-.bside-bg-hv:hover
-{
-    background-color: #0A4F70 !important;
+.bside-bg-hv:hover {
+    background-color: #0a4f70 !important;
     transition: all 0.15s;
 }
-.hl-bg-hv:hover
-{
-    background-color: #F04C63 !important;
+.hl-bg-hv:hover {
+    background-color: #f04c63 !important;
     transition: all 0.15s;
 }
-.lightgray-bg-hv:hover
-{
+.lightgray-bg-hv:hover {
     background-color: #f8f6f7 !important;
     transition: all 0.15s;
 }
-.gray-bg-hv:hover
-{
+.gray-bg-hv:hover {
     background-color: #c6c4c4 !important;
     transition: all 0.15s;
 }
 
-
 /**
  *      Text color
  */
-.main-txt
-{
-    color: #51C5DD;
+.main-txt {
+    color: #51c5dd;
 }
-.bside-txt
-{
-    color: #0A4F70;
+.bside-txt {
+    color: #0a4f70;
 }
-.hl-txt
-{
-    color: #F04C63;
+.hl-txt {
+    color: #f04c63;
 }
-.lightgray-txt
-{
+.lightgray-txt {
     color: #f8f6f7;
 }
-.gray-txt
-{
+.gray-txt {
     color: #c6c4c4;
 }
 
 /**
  *      Text color !IMPORTANT
  */
-.main-txt-i
-{
-    color: #51C5DD !important;
+.main-txt-i {
+    color: #51c5dd !important;
 }
-.bside-txt-i
-{
-    color: #0A4F70 !important;
+.bside-txt-i {
+    color: #0a4f70 !important;
 }
-.hl-txt-i
-{
-    color: #F04C63 !important;
+.hl-txt-i {
+    color: #f04c63 !important;
 }
-.lightgray-txt-i
-{
+.lightgray-txt-i {
     color: #f8f6f7 !important;
 }
-.gray-txt-i
-{
+.gray-txt-i {
     color: #c6c4c4 !important;
 }
-
 
 /**
  *      Text:HOVER color
  */
-.main-hv:hover
-{
-    color: #51C5DD;
+.main-hv:hover {
+    color: #51c5dd;
     transition: all 0.15s;
 }
-.bside-hv:hover
-{
-    color: #0A4F70;
+.bside-hv:hover {
+    color: #0a4f70;
     transition: all 0.15s;
 }
-.hl-hv:hover
-{
-    color: #F04C63;
+.hl-hv:hover {
+    color: #f04c63;
     transition: all 0.15s;
 }
-.lightgray-hv:hover
-{
+.lightgray-hv:hover {
     color: #f8f6f7;
     transition: all 0.15s;
 }
-.gray-hv:hover
-{
+.gray-hv:hover {
     color: #c6c4c4;
     transition: all 0.15s;
 }

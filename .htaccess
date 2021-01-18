@@ -1,0 +1,31 @@
+
+AddDefaultCharset UTF-8
+
+Options -Indexes
+
+DirectoryIndex main.php
+
+
+RewriteEngine On
+
+RewriteRule (.*)\.fpt$ $1.php
+
+RewriteBase /kesachphatgiao/
+RewriteRule ^(.*)/$ home.php?ctrl=$1 [L]
+RewriteRule ^(.*)/$ home.php?ctrl=$1 [R]
+
+
+RewriteRule ^system/$ -[F,NC]
+RewriteRule ^public/$ -[F,NC]
+
+RewriteCond %{TIME_HOUR}%{TIME_MIN} >2359 [OR]
+RewriteCond %{TIME_HOUR}%{TIME_MIN} <0001
+
+
+
+<Files .htaccess>
+
+Order Allow,Deny
+Deny from all
+
+</Files>
