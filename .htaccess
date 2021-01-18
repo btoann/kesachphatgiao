@@ -1,10 +1,9 @@
 
 AddDefaultCharset UTF-8
 
-Options -Indexes
-
 DirectoryIndex main.php
 
+Options -Indexes
 
 RewriteEngine On
 
