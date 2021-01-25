@@ -67,7 +67,6 @@
             if(isset($_POST['submit']) && $_POST['submit'])
             {
                 $title = (isset($_POST['title']) && $_POST['title']) ? $_POST['title'] : NULL;
-                $sort = (isset($_POST['sort']) && $_POST['sort']) ? $_POST['sort'] : NULL;
                 $status = (isset($_POST['status']) && $_POST['status']) ? $_POST['status'] : NULL;
                 $content = (isset($_POST['content']) && $_POST['content']) ? $_POST['content'] : NULL;
 

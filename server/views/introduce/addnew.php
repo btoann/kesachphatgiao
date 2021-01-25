@@ -58,30 +58,15 @@
                         <input type="text" name="title" class="form-control" id="inputTitle" aria-describedby="" required>
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Giá sản phẩm</label>
-                        <input type="number" name="price" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Khuyến mãi</label>
-                        <select class="form-control" id="exampleFormControlSelect1" name="promotion" required>
-                        <?php
-                            $output = '';
-                            foreach ($promotions as $promotion) {
-                                $output .= '<option value="'.$promotion['id'].'">'.$promotion['name'].' [-'.$promotion['discount'].'%] ('.$promotion['begin'].' - '.$promotion['end'].')</option>';
-                            }
-                            echo $output;
-                        ?>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <div class="custom-file mb-3">
-                            <label for="exampleFormControlFile1">Example file input</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image[]" multiple required>
+                        <label for="exampleInputEmail1">Trạng thái</label>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" name="status" id="inputStatus">
+                            <label class="custom-control-label" for="inputStatus">Hiện</label>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlFile1">Mô tả</label>
-                        <textarea class="form-control w-100 editor" aria-label="With textarea" name="description" id="editor"></textarea>
+                        <label for="inputContent">Nội dung</label>
+                        <textarea class="form-control w-100 editor" aria-label="With textarea" name="content" id="inputContent"></textarea>
                     </div>
                     <input type="submit" name="submit" value="submit" class="btn btn-primary">
                 </form>
@@ -107,41 +92,8 @@
 -->
 <?php $this->section('script'); ?>
 
-    <script src="../public/js/server/index.js"></script>1
+    <script src="../public/js/server/index.js"></script>
     <script src="../system/lib/ckeditor5-build-classic/ckeditor.js"></script>
-    <script>
-
-        // CKFinder.popup( {
-        //     language: 'vi'
-        // } );
-        ClassicEditor
-            .create( document.querySelector('#editor'), {
-                toolbar: [
-                        'heading', '|',
-                        'alignment', '|',
-                        'bold', 'italic', 'strikethrough', 'underline', 'subscript', 'superscript', '|',
-                        'link', '|',
-                        'bulletedList', 'numberedList', 'todoList', '-',
-                        'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor', '|',
-                        'code', 'codeBlock', '|',
-                        'insertTable', '|',
-                        'outdent', 'indent', '|',
-                        'imageUpload', 'blockQuote', '|',
-                        'undo', 'redo'
-                    ],
-                ckfinder: {
-                    options: {
-                        resourceType: 'Images'
-                    },
-                    uploadUrl: '../system/lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json'
-                },
-                language: 'vi'
-            } )
-            .then( editor => {
-            } )
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
+    <script src="../public/js/server/introduce.js"></script>
 
 <?php $this->end(); ?>
