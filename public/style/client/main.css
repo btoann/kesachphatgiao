@@ -78,7 +78,7 @@ input::-webkit-inner-spin-button {
 }
 
 .bside-bg {
-  background-color: #0a4f70;
+  background-color: #af692f;
 }
 
 .hl-bg {
@@ -101,7 +101,7 @@ input::-webkit-inner-spin-button {
 }
 
 .bside-bg-i {
-  background-color: #0a4f70 !important;
+  background-color: #af692f !important;
 }
 
 .hl-bg-i {
@@ -126,7 +126,7 @@ input::-webkit-inner-spin-button {
 }
 
 .bside-bg-hv:hover {
-  background-color: #0a4f70 !important;
+  background-color: #af692f !important;
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
 }
@@ -157,7 +157,7 @@ input::-webkit-inner-spin-button {
 }
 
 .bside-txt {
-  color: #0a4f70;
+  color: #af692f;
 }
 
 .hl-txt {
@@ -180,7 +180,7 @@ input::-webkit-inner-spin-button {
 }
 
 .bside-txt-i {
-  color: #0a4f70 !important;
+  color: #af692f !important;
 }
 
 .hl-txt-i {
@@ -205,7 +205,7 @@ input::-webkit-inner-spin-button {
 }
 
 .bside-hv:hover {
-  color: #0a4f70;
+  color: #af692f;
   -webkit-transition: all 0.15s;
   transition: all 0.15s;
 }

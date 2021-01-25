@@ -10,7 +10,7 @@
     {
         /*  Database chính  */
         const MAIN_HOST = 'localhost';
-        const MAIN_NAME = 'kesachphatgiao';
+        const MAIN_NAME = 'trietlybuddha';
         const MAIN_USER = 'root';
         const MAIN_PASS = '';
 

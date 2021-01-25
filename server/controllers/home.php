@@ -12,7 +12,7 @@
     {
         private $__model;
 
-        const ARR_ACT = ['index', 'addnew'];
+        const ARR_ACT = ['index'];
         
         /**
          *      Hàm khởi tạo

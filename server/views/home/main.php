@@ -1,7 +1,7 @@
 <!--
     @LAYOUT
 -->
-<?php $this->layout(PATH::LAYOUT . '/home/main') ?>
+<?php $this->layout(PATH::LAYOUT . '/main') ?>
 
 
 <!--
@@ -9,7 +9,7 @@
 -->
 <?php $this->section('head'); ?>
 
-    <link rel="stylesheet" href="../public/style/client/main.css">
+    <link rel="stylesheet" href="../public/style/server/home.css">
 
 <?php $this->end(); ?>
 
@@ -20,141 +20,113 @@
 -->
 <?php $this->section('header'); ?>
 
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 tlbh-header">
-                    <div class="linear-bg"></div>
-                    <img src="../public/images/banner.jpg" alt="banner.jpg" class="tlbh-banner">
-                    <nav class="navbar navbar-expand-lg navbar-dark tlbh-navbar">
-                        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#tlbh-header-navbar" aria-controls="tlbh-header-navbar" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="tlbh-header-navbar">
-                            <ul class="navbar-nav mx-auto">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="#">Trang chủ <span class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Giới thiệu
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Mục đích thành lập</a>
-                                        <a class="dropdown-item" href="#">Người sáng lập</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Cty. Hoa Lan Thanh Quang</a>
-                                        <a class="dropdown-item" href="#">Cty. Sâm Ngọc Linh</a>
-                                        <a class="dropdown-item" href="#">Viện NC&UD Buddha YoGa</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Hoạt động
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Thông báo</a>
-                                        <a class="dropdown-item" href="#">Tin tức</a>
-                                        <a class="dropdown-item" href="#">Hình ảnh</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Triết lý
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Luận giảng</a>
-                                        <a class="dropdown-item" href="#">Khai Thị Luận</a>
-                                        <a class="dropdown-item" href="#">Ứng dụng</a>
-                                        <a class="dropdown-item" href="#">Sách nói</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Thư viện bài giảng
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Video</a>
-                                        <a class="dropdown-item" href="#">MP3</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Câu chuyện
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Thực hành thực chứng<br> kết quả nhập thế</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Bài viết</a>
-                                        <a class="dropdown-item" href="#">Cảm nhận</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <div class="tlbh-founder">
-                        <a href="#">
-                            <p class="tlbh-founder-title">Thượng toạ</p>
-                            <p class="tlbh-founder-name">Thích Nhật Từ</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+<?php $this->end(); ?>
+
+
+
+<!--
+    ASIDE
+-->
+<?php $this->section('aside'); ?>
 
 <?php $this->end(); ?>
 
 
 
 <!--
-    CONTENT
+    ARTICLE
 -->
-<?php $this->section('content'); ?>
+<?php $this->section('article'); ?>
 
-    <section>
-        <div class="container">
-            <h3>chỗ này là Content</h3>
-            <pre>
-                <?= print_r($allRecords) ?>
-            </pre>
-            <p>&ensp;</p>
-
-            <h1>Thêm một record:</h1>
-            <form action="main.php?ctrl=home&act=addnew" method="post">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Name</label>
-                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <article class="tlbh-navtabs col">
+        <div class="row">
+            <nav class="col-sm-12">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-link active" id="nav-introduce-tab" data-toggle="tab" href="#nav-introduce" role="tab" aria-controls="nav-introduce" aria-selected="true">Giới thiệu</a>
+                    <a class="nav-link" id="nav-activate-tab" data-toggle="tab" href="#nav-activate" role="tab" aria-controls="nav-activate" aria-selected="false">Hoạt động</a>
+                    <a class="nav-link" id="nav-philosophy-tab" data-toggle="tab" href="#nav-philosophy" role="tab" aria-controls="nav-philosophy" aria-selected="false">Triết lý</a>
+                    <a class="nav-link" id="nav-lesson-tab" data-toggle="tab" href="#nav-lesson" role="tab" aria-controls="nav-lesson" aria-selected="false">Bài giảng</a>
+                    <a class="nav-link" id="nav-story-tab" data-toggle="tab" href="#nav-story" role="tab" aria-controls="nav-story" aria-selected="false">Câu chuyện</a>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Email</label>
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </nav>
+            <div class="col-sm-12 tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-introduce" role="tabpanel" aria-labelledby="nav-introduce-tab">
+                    <div class="row">
+                        <div class="tlbh-navtabs-card col-sm-8">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tlbh-navtabs-card col-sm-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tlbh-navtabs-card col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tlbh-navtabs-card col-sm-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tlbh-navtabs-card col-sm-5">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tlbh-navtabs-card col-sm-7">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="#" class="card-link">Card link</a>
+                                    <a href="#" class="card-link">Another link</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="pass" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Phone</label>
-                    <input type="number" name="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                </div>
-                <div class="form-group form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                </div>
-                <input type="submit" name="submit" value="submit" class="btn btn-primary">
-            </form>
-            <p>&ensp;</p>
-
+                <div class="tab-pane fade" id="nav-activate" role="tabpanel" aria-labelledby="nav-activate-tab">...</div>
+                <div class="tab-pane fade" id="nav-philosophy" role="tabpanel" aria-labelledby="nav-philosophy-tab">...</div>
+                <div class="tab-pane fade" id="nav-lesson" role="tabpanel" aria-labelledby="nav-lesson-tab">...</div>
+                <div class="tab-pane fade" id="nav-story" role="tabpanel" aria-labelledby="nav-story-tab">...</div>
+            </div>
         </div>
-    </section>
+    </article>
 
 <?php $this->end(); ?>
 
@@ -165,12 +137,6 @@
 -->
 <?php $this->section('footer'); ?>
 
-    <footer>
-        <div class="container">
-            <h3>Đây là Footer</h3>
-        </div>
-    </footer>
-
 <?php $this->end(); ?>
 
 
@@ -179,11 +145,5 @@
     SCRIPT
 -->
 <?php $this->section('script'); ?>
-
-    <section>
-        <div class="container">
-            <h3>Chỗ này để Script</h3>
-        </div>
-    </section>
 
 <?php $this->end(); ?>

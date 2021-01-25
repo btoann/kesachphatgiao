@@ -13,7 +13,7 @@
          */
         public function __construct() {
             //  Gọi hàm khởi tạo của Database
-            $this->__dtb = new Model(DTB::ORTHER_NAME_1);
+            $this->__dtb = new Model(DTB::MAIN_NAME);
         }
 
         
@@ -23,10 +23,10 @@
         public function getRecord(int $id)
         {
             $sql =
-                "SELECT categories.id, categories.name, users.name as creator,
-                        DATE_FORMAT(categories.date, '%d/%m/%Y') as date, categories.active
-                    FROM categories INNER JOIN users ON categories.id_admin = users.id
-                WHERE categories.id = $id";
+                "SELECT intro.id, intro.title, intro.sort, intro.status, intro.content
+                        DATE_FORMAT(intro.date, '%d/%m/%Y') as date, intro.lastUpdate, users.name
+                    FROM introduce intro INNER JOIN users ON intro.id_admin = users.id
+                WHERE intro.id = $id";
 
             return $this->__dtb->queryOne($sql);
         }
@@ -41,7 +41,7 @@
         public function getAllRecords(string $order = 'id', string $sort = 'DESC', int $limit = 10, int $start = 0)
         {
             $arr_param = [
-                'order' => ['id', 'date'],
+                'order' => ['id', 'sort'],
                 'sort' => ['DESC', 'ASC']
             ];
 
@@ -53,9 +53,8 @@
             }
 
             $sql =
-                "SELECT users.id, users.name, users.pass as creator,
-                        DATE_FORMAT(users.date, '%d/%m/%Y') as date, users.role
-                    FROM users ORDER BY $order $sort";
+                "SELECT id, title, sort, status
+                    FROM introduce ORDER BY $order $sort";
 
             return $this->__dtb->query($sql);
         }

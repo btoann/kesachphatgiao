@@ -11,12 +11,12 @@
     include_once '../system/core/config.php';
     include_once '../'.PATH::SYSTEM_CORE.'/boolean.php';
 
-    define('ARR_CTRLR', ['home', 'introduce', 'activate', 'philosophy', 'library', 'story', 'user', 'comment', 'rate']);
+    define('ARR_CTRLR', ['home', 'introduce', 'activate', 'philosophy', 'library', 'story', 'account', 'comment', 'rate', 'products']);
 
     $ctrl = (isset($_GET['ctrl']) && $_GET['ctrl']) ? $_GET['ctrl'] : 'home';
 
     if (!in_array($ctrl, ARR_CTRLR)) {
-        die("Không tồn tại địa chỉ");
+        header('location: ' . URL::HOME);
     }
 
     $filename = PATH::CTRLR . '/' . $ctrl . '.php';
@@ -29,7 +29,7 @@
         include_once $filename;
         $ctrl = 'c_' . $ctrl;
         $controller = new $ctrl();
-        
+
     }
 
 ?>

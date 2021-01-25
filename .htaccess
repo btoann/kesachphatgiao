@@ -9,9 +9,9 @@ RewriteEngine On
 
 RewriteRule (.*)\.fpt$ $1.php
 
-RewriteBase /kesachphatgiao/
-RewriteRule ^(.*)/$ home.php?ctrl=$1 [L]
-RewriteRule ^(.*)/$ home.php?ctrl=$1 [R]
+RewriteBase /kesachphatgiao/server/
+RewriteRule ^(.*)/$ main.php?ctrl=$1 [L]
+RewriteRule ^(.*)/$ main.php?ctrl=$1 [R]
 
 
 RewriteRule ^system/$ -[F,NC]

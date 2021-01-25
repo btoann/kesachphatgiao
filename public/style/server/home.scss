@@ -1,0 +1,110 @@
+/**
+ *  CSS tổng:
+ */
+
+@import "../style";
+
+/**
+ *
+ *  CSS cục bộ:
+ *
+ */
+
+.tlbh-header {
+    border-bottom: 1px solid rgba(28, 39, 60, 0.12);
+    &-logo {
+        width: fit-content;
+        height: 100%;
+        margin: 0;
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 100%;
+        color: #fff;
+        a {
+            height: 100%;
+            font-family: "Times New Roman", Times, serif !important;
+        }
+    }
+    .tlbh-navbar {
+        ul {
+            li {
+                margin-right: 0.5rem;
+                position: relative;
+                &.nav-item.active {
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: 0;
+                        width: 100%;
+                        height: 0.1rem;
+                        background-color: #fff;
+                    }
+                }
+                & > a {
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+.tlbh-aside {
+    margin-top: 100px;
+    border-right: 1px solid #e3e7ed;
+    &-list {
+        label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        ul {
+            li {
+                display: block;
+                padding: 0;
+                margin-bottom: 5px;
+                border: none;
+                font-size: 13px;
+                color: #596882;
+                background-color: transparent;
+                &.active {
+                    font-weight: 700;
+                    color: $bside-color;
+                    background-color: transparent;
+                }
+            }
+        }
+    }
+}
+
+.tlbh-article {
+    margin-top: 100px;
+    padding-left: 40px;
+    &-table {
+        margin-top: 15px;
+    }
+}
+
+.tlbh-navtabs {
+    margin-top: 100px;
+    &-card {
+        margin-top: 1rem;
+    }
+}
+
+.tlbh-footer {
+    height: 40px;
+    margin-top: 15px;
+    border-top: 1px solid rgba(28, 39, 60, 0.12);
+    background-color: #fff;
+    &-contents {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px 0;
+        font-size: 12px;
+        justify-content: space-between;
+        color: #7987a1;
+    }
+}
