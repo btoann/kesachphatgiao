@@ -11,6 +11,4 @@ var config = {};
 // config.language = 'pl';
 // config.skin = 'jquery-mobile';
 
-config.language = 'vi';
-
-CKFinder.define(config);
+CKFinder.define( config );
