@@ -33,8 +33,8 @@
         <div class="tlbh-aside-list">
             <label for="">Phần giới thiệu</label>
             <ul class="list-group">
-                <li class="list-group-item"><a href="main.php?ctrl=products">Thống kê</a></li>
-                <li class="list-group-item active"><a href="main.php?ctrl=products&act=addnew">Thêm mới</a></li>
+                <li class="list-group-item"><a href="main.php?ctrl=introduce">Thống kê</a></li>
+                <li class="list-group-item active"><a href="main.php?ctrl=introduce&act=addnew">Thêm mới</a></li>
             </ul>
         </div>
     </aside>
@@ -51,36 +51,11 @@
     <article class="tlbh-article col-sm-10">
         <div class="row">
             <div class="col-sm-12">
-                <h3>Thêm sản phẩm</h3>
-                <form action="main.php?ctrl=products&act=addnew" method="post" enctype="multipart/form-data">
+                <h3>Bài viết giới thiệu</h3>
+                <form action="main.php?ctrl=introduce&act=addnew" method="post" enctype="multipart/form-data">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Tên sản phẩm</label>
-                        <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlSelect1">Danh mục</label>
-                        <select class="form-control" id="exampleFormControlSelect1" name="category" required>
-                        <?php
-
-                            $out = '';
-                            for($i = 0; $i < count($categories); $i++)
-                            {
-                                if($categories[$i]['depth'] == 0)
-                                {
-                                    $out .= ($i == 0) ? '' : '</optgroup>';
-                                    $out .= '<optgroup label="'.$categories[$i]['name'].'">';
-                                }
-                                else
-                                {
-                                    $out .= '<option value="'.$categories[$i]['id'].'">'.$categories[$i]['name'].'</option>';
-                                }
-                            }
-                            $out .= '</optgroup>';
-
-                            echo $out;
-
-                        ?>
-                        </select>
+                        <label for="inputTitle">Nhan đề</label>
+                        <input type="text" name="title" class="form-control" id="inputTitle" aria-describedby="" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Giá sản phẩm</label>

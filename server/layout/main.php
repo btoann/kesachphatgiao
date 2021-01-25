@@ -67,7 +67,7 @@
                                             Khác
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="#">Giới thiệu</a>
+                                            <a class="dropdown-item" href="main.php?ctrl=introduce">Giới thiệu</a>
                                             <a class="dropdown-item" href="#">Hoạt động</a>
                                         </div>
                                     </li>

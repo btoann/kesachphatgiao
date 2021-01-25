@@ -53,7 +53,7 @@
             }
 
             $sql =
-                "SELECT id, title, sort, status
+                "SELECT id, title, date, sort, status
                     FROM introduce ORDER BY $order $sort";
 
             return $this->__dtb->query($sql);
