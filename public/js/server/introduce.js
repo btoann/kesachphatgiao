@@ -1,4 +1,4 @@
-import SimpleUploadAdapter from '/lib/ckeditor5-build-classic/node_modules/@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter.js';
+import SimpleUploadAdapter from '../../lib/ckeditor5-build-classic/node_modules/@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter.js';
 
 ClassicEditor
     .create(document.querySelector('#inputContent'), {

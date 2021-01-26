@@ -94,6 +94,6 @@
 
     <script src="../public/js/server/index.js"></script>
     <script src="../public/lib/ckeditor5-build-classic/ckeditor.js"></script>
-    <script src="../public/js/server/introduce.js" type="module"></script>
+    <script type="module" src="../public/js/server/introduce.js"></script>
 
 <?php $this->end(); ?>
