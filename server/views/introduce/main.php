@@ -9,6 +9,7 @@
 -->
 <?php $this->section('head'); ?>
 
+    <script src="../public/js/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="../public/style/server/home.css">
 
 <?php $this->end(); ?>

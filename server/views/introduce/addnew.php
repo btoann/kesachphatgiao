@@ -93,7 +93,7 @@
 <?php $this->section('script'); ?>
 
     <script src="../public/js/server/index.js"></script>
-    <script src="../system/lib/ckeditor5-build-classic/ckeditor.js"></script>
-    <script src="../public/js/server/introduce.js"></script>
+    <script src="../public/lib/ckeditor5-build-classic/ckeditor.js"></script>
+    <script src="../public/js/server/introduce.js" type="module"></script>
 
 <?php $this->end(); ?>
