@@ -23,9 +23,11 @@
         public function getRecord(int $id)
         {
             $sql =
-                "SELECT intro.id, intro.title, intro.sort, intro.status, intro.content
-                        DATE_FORMAT(intro.date, '%d/%m/%Y') as date, intro.lastUpdate, users.name
+                "SELECT intro.id, intro.title, intro.status, intro.content,
+                        DATE_FORMAT(intro.date, '%d/%m/%Y') as date, intro.lastUpdate,
+                        users.name as author, img.path as image
                     FROM introduce intro INNER JOIN users ON intro.id_admin = users.id
+                                        INNER JOIN introduce_images img ON intro.id = img.id_introduce
                 WHERE intro.id = $id";
 
             return $this->__dtb->queryOne($sql);
@@ -62,18 +64,41 @@
         /**
          *      Thêm mới 1 record
          */
-        public function addNewRecord(string $name, string $email, int $tel, string $pass)
+        public function storeRecord(string $title, int $status, string $content, int $author = 22)
         {
-            if (is_null($name, $email, $tel, $pass)) {
-                //return false;
-            }
-
             $sql =
-                "INSERT INTO users (name, email, tel, pass)
-                        VALUES ('$name', '$email', '$tel', '$pass')";
+                "INSERT INTO introduce (title, status, content, id_admin)
+                        VALUES ('$title', '$status', '$content', '$author')";
+
+            return $this->__dtb->getExec($sql);
+        }
+        /**
+         *      Thêm ảnh bìa cho 1 record
+         */
+        public function storeImg(string $path, string $id_introduce)
+        {
+            $sql =
+                "INSERT INTO introduce_images (path, sort, id_introduce)
+                        VALUES ('$path', '1', '$id_introduce')";
 
             return $this->__dtb->execute($sql);
         }
+
+        /**
+         *      Xóa 1 record
+         */
+        public function dropRecord(string $id = NULL)
+        {
+            if (is_null($id)) {
+                return false;
+            }
+
+            $sql =
+                "DELETE FROM introduce WHERE id IN ($id)";
+
+            return $this->__dtb->execute($sql);
+        }
+        
         
         /**
          *      Hàm kết thúc

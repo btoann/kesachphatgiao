@@ -63,7 +63,7 @@
                             <th scope="col">Nội dung</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="data-introduce">
                         <?php
                             if (isset($allRecords)) {
                                 foreach($allRecords as $introduce) {
@@ -75,18 +75,36 @@
                                         <td><?= $introduce['title'] ?></td>
                                         <td><?= $introduce['date'] ?></td>
                                         <td><?= $introduce['status'] ?></td>
-                                        <td><sub><a href="main.php?ctrl=introduce&act=detail&id=<?= $product['id'] ?>"><ins>Chi tiết</ins></a></sub></td>
+                                        <td><sub><a href="main.php?ctrl=introduce&act=detail&id=<?= $introduce['id'] ?>"><ins>Chi tiết</ins></a></sub></td>
                                     </tr>
                         <?php   }
                             }
                         ?>
                     </tbody>
                 </table>
-                <form>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-end">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col">
+                <form action="main.php?ctrl=introduce&act=delete" method="post" id="delete_form">
                     <button type="button" id="select_all" class="btn btn-outline-secondary">Chọn tất cả</button>
-                    <button type="submit" name="delete" class="btn btn-outline-danger" form="delete_form">Xoá</button>
+                    <button type="submit" name="delete" value="delete" class="btn btn-outline-danger" form="delete_form">Xoá</button>
                 </form>
-                <form action="main.php?ctrl=introduce&act=delete" method="post" id="delete_form"></form>
             </div>
         </div>
     </article>

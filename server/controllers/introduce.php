@@ -14,7 +14,7 @@
 
         private $__template;
 
-        const ARR_ACT = ['addnew', 'edit', 'delete'];
+        const ARR_ACT = ['addnew', 'edit', 'delete', 'detail'];
         
         /**
          *      Hàm khởi tạo
@@ -67,41 +67,40 @@
             if(isset($_POST['submit']) && $_POST['submit'])
             {
                 $title = (isset($_POST['title']) && $_POST['title']) ? $_POST['title'] : NULL;
-                $status = (isset($_POST['status']) && $_POST['status']) ? $_POST['status'] : NULL;
+                $status = (isset($_POST['status']) && $_POST['status']) ? $_POST['status'] : 0;
                 $content = (isset($_POST['content']) && $_POST['content']) ? $_POST['content'] : NULL;
 
                 $bool = new Boolean();
 
                 if($bool->checkNull($title, $content))
                 {
-                    $last_id = $this->__model->storeRecord($name, $category, $price, $promotion, $description);
-                    $last_id = $last_id->lastInsertId();
-
                     if(isset($_FILES['image']))
                     {
-                        $target_folder = PATH::IMAGES . "/products/p_$last_id/";
-                        if(!file_exists($target_folder))
-                        {
+                        $last_id = $this->__model->storeRecord($title, $status, $content);
+                        $last_id = $last_id->lastInsertId();
+
+                        $images = $_FILES['image'];
+                        $target_folder = '../' . PATH::IMAGES . '/'.'introduce'.'/';
+                        if(!file_exists($target_folder)) {
                             // Tạo 1 folder mới nếu nó chưa tồn tại
                             mkdir($target_folder, 0777, true);
                         }
-                        $images = $_FILES['image'];
-                        for($i = 0; $i <= sizeof($images); $i++)
-                        {
-                            $filename = md5($images['name'][$i]).'-'.time(); // ex: 5dab1961e93a7-1571494241
-                            $extension = pathinfo($images['name'][$i], PATHINFO_EXTENSION); // ex: jpg
-                            $basename = $filename.'.'.$extension; // ex: 5dab1961e93a7_1571494241.jpg
 
-                            $target_file = $target_folder.$basename;
-                            if(move_uploaded_file($images["tmp_name"][$i], $target_file))
-                            {
-                                // Upload thành công
-                                $img_name = $name.' - #'.$i;
-                                $this->__model->storeImg($img_name, $last_id, $basename);
-                            }
+                        $filename = md5($images['name']) . '-' . time(); // ex: 5dab1961e93a7-1571494241
+                        $extension = pathinfo($images['name'], PATHINFO_EXTENSION); // ex: jpg
+                        $basename = $filename . '.' . $extension; // ex: 5dab1961e93a7_1571494241.jpg
+
+                        $target_file = $target_folder . $basename;
+                        if(move_uploaded_file($images['tmp_name'], $target_file)) {
+                            // Upload thành công
+                            //$img_name = $title . ' - #' . $last_id;
+                            $this->__model->storeImg($basename, $last_id);
+                        }
+                        else {
+                            throw new Exception("Can't upload image!");
                         }
                     }
-                    header('location: main.php?ctrl=products');
+                    header('location: main.php?ctrl=introduce');
                 }
             }
         }
@@ -151,7 +150,25 @@
 
                 $this->__model->dropRecord($ids);
 
-                header('location: main.php?ctrl=products');
+                header('location: main.php?ctrl=introduce');
+            }
+        }
+        
+        /**
+         *      Chức năng show chi tiết
+         */
+        private function detail() {
+            if (isset($_GET['id']) && $_GET['id'])
+            {
+                $input = [
+                    'record' => $this->__model->getRecord($_GET['id'])
+                ];
+
+                if (!is_array($input['record'])) {
+                    header('location: main.php?ctrl=introduce');
+                }
+
+                echo $this->__template->render('detail', $input);
             }
         }
 

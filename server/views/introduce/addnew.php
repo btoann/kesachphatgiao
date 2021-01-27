@@ -60,15 +60,19 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Trạng thái</label>
                         <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" name="status" id="inputStatus">
+                            <input type="checkbox" class="custom-control-input" name="status" id="inputStatus" value="1">
                             <label class="custom-control-label" for="inputStatus">Hiện</label>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputImg">Ảnh giới thiệu</label>
+                        <input type="file" class="form-control-file" name="image" id="inputImg" required>
                     </div>
                     <div class="form-group">
                         <label for="inputContent">Nội dung</label>
                         <textarea class="form-control w-100 editor" aria-label="With textarea" name="content" id="inputContent"></textarea>
                     </div>
-                    <input type="submit" name="submit" value="submit" class="btn btn-primary">
+                    <input type="submit" name="submit" value="Thêm" class="btn btn-primary">
                 </form>
             </div>
         </div>
@@ -94,6 +98,6 @@
 
     <script src="../public/js/server/index.js"></script>
     <script src="../public/lib/ckeditor5-build-classic/ckeditor.js"></script>
-    <script type="module" src="../public/js/server/introduce.js"></script>
+    <script src="../public/js/server/introduce.js"></script>
 
 <?php $this->end(); ?>

@@ -33,7 +33,7 @@ $(document).ready(function () {
      */
     var table_record = $('.tlbh-article-table-record');
     table_record.click(function (e) {
-        if (!$(e.target).is('input[type = checkbox]')) {
+        if (!$(e.target).is('input[type = checkbox]') || !$(e.target).is('sub > a')) {
             var record_cb = $(this).find('input[type = checkbox]');
             if (record_cb.is(':checked')) {
                 record_cb.prop('checked', false);

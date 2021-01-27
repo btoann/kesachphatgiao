@@ -35,6 +35,18 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+textarea {
+    width: 100%;
+    min-height: 300px;
+    ~ .ck-editor .ck-editor__editable.ck-content {
+        min-height: 300px;
+    }
+}
+img.img-fit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 /**
  *      Default texts
  */
