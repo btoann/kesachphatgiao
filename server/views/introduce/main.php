@@ -85,7 +85,7 @@
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-end">
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous">
+                            <a class="page-link" href="#" aria-label="Previous" id="prev_btn">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -93,7 +93,7 @@
                         <li class="page-item"><a class="page-link" href="#">2</a></li>
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next">
+                            <a class="page-link" href="#" aria-label="Next" id="next_btn">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
@@ -128,5 +128,6 @@
 <?php $this->section('script'); ?>
 
     <script src="../public/js/server/index.js"></script>
+    <script src="../public/js/server/introduce.js"></script>
 
 <?php $this->end(); ?>

@@ -37,10 +37,10 @@
          *      Get tất cả record
          *      @param string $order (default 'id') -> Sắp xếp theo: 'id', 'date'
          *      @param string $sort (default 'DESC') -> Thứ tự: 'DESC' (Giảm dần), 'ASC' (Tăng dần)
-         *      @param int $limit (default 10) -> Giới hạn số records lấy về
+         *      @param int $limit (default 0) -> Giới hạn số records lấy về
          *      @param int $start (default 0) -> Lấy từ record thứ $start
          */
-        public function getAllRecords(string $order = 'id', string $sort = 'DESC', int $limit = 10, int $start = 0)
+        public function getAllRecords(string $order = 'id', string $sort = 'DESC', int $limit = 0, int $start = 0)
         {
             $arr_param = [
                 'order' => ['id', 'sort'],
@@ -57,6 +57,10 @@
             $sql =
                 "SELECT id, title, date, sort, status
                     FROM introduce ORDER BY $order $sort";
+
+            if ($limit > 0) {
+                $sql .= " LIMIT $limit, $start";
+            }
 
             return $this->__dtb->query($sql);
         }
