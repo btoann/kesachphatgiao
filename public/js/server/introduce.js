@@ -1,6 +1,4 @@
-
 if (typeof ClassicEditor !== 'undefined') {
-
     ClassicEditor
         .create(document.querySelector('#inputContent'), {
             image: {
@@ -8,10 +6,8 @@ if (typeof ClassicEditor !== 'undefined') {
                 styles: [
                     'alignLeft', 'alignCenter', 'alignRight'
                 ],
-
                 // Configure the available image resize options.
-                resizeOptions: [
-                    {
+                resizeOptions: [{
                         name: 'imageResize:original',
                         label: 'Original',
                         value: null
@@ -25,10 +21,8 @@ if (typeof ClassicEditor !== 'undefined') {
                         name: 'imageResize:75',
                         label: '75%',
                         value: '75'
-
                     }
                 ],
-
                 // You need to configure the image toolbar, too, so it shows the new style
                 // buttons as well as the resize buttons.
                 toolbar: [
@@ -52,23 +46,26 @@ if (typeof ClassicEditor !== 'undefined') {
             //     'imageUpload', 'blockQuote', '|',
             //     'undo', 'redo'
             // ],
-
             ckfinder: {
                 options: {
                     resourceType: 'Images'
                 },
                 uploadUrl: '../public/lib/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files&responseType=json&thisDir=introduce'
             },
-            // simpleUpload: {
-            //     uploadUrl: { url: 'main.php?ctrl=introduce&act=upload&type=image' }
-            // },
             language: 'vi'
         })
-        .then(editor => {
-        })
+        .then(editor => {})
         .catch(error => {
             console.error(error);
         });
-
-
 }
+
+$.ajax({
+    type: "post",
+    url: "main.php?ctrl=introduce",
+    data: "data",
+    dataType: "JSON",
+    success: function(response) {
+
+    }
+});

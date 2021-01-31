@@ -48,7 +48,20 @@
          *      Chức năng mặc định
          */
         private function main() {
+            if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+                if (isset($_POST['nextRecords']) && $_POST['nextRecords'])
+                {
+                    $this->nextRecords();
+                    return;
+                }
+            }
+
             echo $this->__template->render('main', ['allRecords' => $this->__model->getAllRecords()]);
+        }
+        private function nextRecords()
+        {
+            
         }
 
         /**
