@@ -107,13 +107,17 @@
                 return $content;
             }
 
-            ob_clean();
+            if (ob_get_length() > 0) {
+                ob_clean();
+            }
 
             include_once $this->__resolveOtherPath($this->__layout);
 
             $output = ob_get_contents();
 
-            ob_end_clean();
+            if (ob_get_length() > 0) {
+                ob_end_clean();
+            }
 
             return $output;
         }

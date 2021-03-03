@@ -48,20 +48,38 @@
          *      Chức năng mặc định
          */
         private function main() {
-            if($_SERVER['REQUEST_METHOD'] == 'POST')
+            
+            $limit_records = 1;
+
+            if($_SERVER['REQUEST_METHOD'] === 'POST')
             {
-                if (isset($_POST['nextRecords']) && $_POST['nextRecords'])
+                if (isset($_POST['requestPage']) && $_POST['requestPage'] > 0)
                 {
-                    $this->nextRecords();
+                    echo $this->getPage($_POST['requestPage'], $limit_records);
                     return;
                 }
             }
 
-            echo $this->__template->render('main', ['allRecords' => $this->__model->getAllRecords()]);
+            $input = [
+                'allRecords' => $this->__model->getAllRecords($limit_records),
+                'countAllRecords' => $this->__model->countAllRecords(),
+                'limitRecords' => $limit_records
+            ];
+            echo $this->__template->render('main', $input);
         }
-        private function nextRecords()
+        private function getPage(int $requestPage = 1, int $limit = 10)
         {
-            
+            /*  Bắt đầu lấy từ record thứ $start  */
+            $start = ($requestPage - 1) * $limit;
+
+            $input = [
+                'requestPage' => $requestPage,
+                'allRecords' => $this->__model->getAllRecords($limit, $start),
+                'countAllRecords' => $this->__model->countAllRecords(),
+                'limitRecords' => $limit
+            ];
+
+            return $this->__template->render('ajaxContent', $input);
         }
 
         /**

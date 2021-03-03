@@ -51,7 +51,7 @@
 
     <article class="tlbh-article col-sm-10">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12" id="table-records">
                 <h3>Danh sách phần giới thiệu</h3>
                 <table class="tlbh-article-table table table-striped">
                     <thead>
@@ -63,7 +63,7 @@
                             <th scope="col">Nội dung</th>
                         </tr>
                     </thead>
-                    <tbody id="data-introduce">
+                    <tbody>
                         <?php
                             if (isset($allRecords)) {
                                 foreach($allRecords as $introduce) {
@@ -83,20 +83,44 @@
                     </tbody>
                 </table>
                 <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-end">
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Previous" id="prev_btn">
-                                <span aria-hidden="true">&laquo;</span>
-                            </a>
-                        </li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Next" id="next_btn">
-                                <span aria-hidden="true">&raquo;</span>
-                            </a>
-                        </li>
+                    <ul class="pagination justify-content-end" id="pagination">
+                        <?php
+                            if (isset($countAllRecords, $limitRecords))
+                            {
+                                // Làm tròn kết quả số bảng thu được
+                                $totalTables = ceil($countAllRecords['count'] / $limitRecords);
+                                if ($totalTables >= 5)
+                                {
+                                    for($i = 1; $i <= 3; $i++) {
+                        ?>
+                                        <li class="page-item <?= ($i == 1) ? 'active' : '' ?>" data-records="<?= $i ?>"><a class="page-link" href="#"><?= $i ?></a></li>
+                        <?php           
+                                    }
+                        ?>
+                                    <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                    <li class="page-item" id="next_btn" data-records="<?= $totalTables ?>">
+                                        <a class="page-link" href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                        <?php  
+                                }
+                                else
+                                {
+                                    for($i = 1; $i <= $totalTables; $i++) {
+                        ?>
+                                        <li class="page-item <?= ($i == 1) ? 'active' : '' ?>" data-records="<?= $i ?>"><a class="page-link" href="#"><?= $i ?></a></li>
+                        <?php   
+                                    }
+                                    
+                                }
+                            }
+                            else {
+                        ?>
+                                <li class="page-item active" data-records="1"><a class="page-link" href="#">1</a></li>
+                        <?php
+                            }
+                        ?>
                     </ul>
                 </nav>
             </div>
@@ -128,6 +152,6 @@
 <?php $this->section('script'); ?>
 
     <script src="../public/js/server/index.js"></script>
-    <script src="../public/js/server/introduce.js"></script>
+    <script src="../public/js/server/introduce.js" id="this_script"></script>
 
 <?php $this->end(); ?>

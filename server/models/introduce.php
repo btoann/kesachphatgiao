@@ -35,12 +35,12 @@
 
         /**
          *      Get tất cả record
-         *      @param string $order (default 'id') -> Sắp xếp theo: 'id', 'date'
-         *      @param string $sort (default 'DESC') -> Thứ tự: 'DESC' (Giảm dần), 'ASC' (Tăng dần)
          *      @param int $limit (default 0) -> Giới hạn số records lấy về
          *      @param int $start (default 0) -> Lấy từ record thứ $start
+         *      @param string $order (default 'id') -> Sắp xếp theo: 'id', 'date'
+         *      @param string $sort (default 'DESC') -> Thứ tự: 'DESC' (Giảm dần), 'ASC' (Tăng dần)
          */
-        public function getAllRecords(string $order = 'id', string $sort = 'DESC', int $limit = 0, int $start = 0)
+        public function getAllRecords(int $limit = 0, int $start = 0, string $order = 'id', string $sort = 'DESC')
         {
             $arr_param = [
                 'order' => ['id', 'sort'],
@@ -59,10 +59,19 @@
                     FROM introduce ORDER BY $order $sort";
 
             if ($limit > 0) {
-                $sql .= " LIMIT $limit, $start";
+                $sql .= " LIMIT $start, $limit";
             }
 
             return $this->__dtb->query($sql);
+        }
+        /**
+         *      Đếm tổng số records
+         */
+        public function countAllRecords()
+        {
+            $sql = "SELECT COUNT(id) as count FROM introduce";
+
+            return $this->__dtb->queryOne($sql);
         }
         
         /**

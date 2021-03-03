@@ -8,20 +8,20 @@ if (typeof ClassicEditor !== 'undefined') {
                 ],
                 // Configure the available image resize options.
                 resizeOptions: [{
-                        name: 'imageResize:original',
-                        label: 'Original',
-                        value: null
-                    },
-                    {
-                        name: 'imageResize:50',
-                        label: '50%',
-                        value: '50'
-                    },
-                    {
-                        name: 'imageResize:75',
-                        label: '75%',
-                        value: '75'
-                    }
+                    name: 'imageResize:original',
+                    label: 'Original',
+                    value: null
+                },
+                {
+                    name: 'imageResize:50',
+                    label: '50%',
+                    value: '50'
+                },
+                {
+                    name: 'imageResize:75',
+                    label: '75%',
+                    value: '75'
+                }
                 ],
                 // You need to configure the image toolbar, too, so it shows the new style
                 // buttons as well as the resize buttons.
@@ -54,18 +54,30 @@ if (typeof ClassicEditor !== 'undefined') {
             },
             language: 'vi'
         })
-        .then(editor => {})
+        .then(editor => { })
         .catch(error => {
             console.error(error);
         });
 }
 
-$.ajax({
-    type: "post",
-    url: "main.php?ctrl=introduce",
-    data: "data",
-    dataType: "JSON",
-    success: function(response) {
-
-    }
+$(document).ready(function () {
+    $('#pagination > li.page-item').click(function () {
+        var dataRecords = parseInt($(this).attr('data-records'));
+        if (typeof dataRecords === 'number' && dataRecords > 0) {
+            $.ajax({
+                type: "post",
+                url: "main.php?ctrl=introduce",
+                data: { requestPage: dataRecords },
+                dataType: "text",
+                success: function (data) {
+                    $('#table-records').html(data);
+                    var this_script = $('#this_script');
+                    this_script.after(
+                        '<script src="../public/js/server/introduce.js" id="this_script"></script>'
+                    );
+                    this_script.remove();
+                }
+            });
+        }
+    });
 });

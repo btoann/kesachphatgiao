@@ -1,0 +1,1 @@
+<?php $this->renderSection('ajax_content'); ?>
